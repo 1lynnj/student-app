@@ -51,14 +51,23 @@ function App() {
         return student;
       }
     });
+    console.log(`🐈${JSON.stringify(students)}`);
     setStudentData(students);
-    // console.log(`🌼 ${studentData}`);
+    console.log(`📍 ${studentData}`);
+  };
+
+  const clearStudentData = () => {
+    const emptyStudentList = [];
+    setStudentData(emptyStudentList);
   };
 
   return (
     <main>
       <h1>Attendance</h1>
-      <ClassInfo memberCount={studentData.length}></ClassInfo>
+      <ClassInfo
+        memberCount={studentData.length}
+        onClearStudentList={clearStudentData}
+      ></ClassInfo>
       <StudentList
         students={studentData}
         onUpdateStudent={updateStudentData}
